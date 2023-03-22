@@ -1,11 +1,9 @@
-// import { useDispatch, useSelector } from 'react-redux'
 import './App.css'
 import AddTodoForm from './componenets/AddTodoForm'
 import TodoList from './componenets/TodoList'
 
 function App() {
-  // const dispatch = useDispatch()
-  // const todoList = useSelector()
+
 
   return (
     <div className="App text-center p-[2rem] grid place-items-center">
