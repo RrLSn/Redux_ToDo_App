@@ -1,28 +1,13 @@
-import { ADDTODO, DELETETODO } from "../redux/action"
-
-const initialstate = {
-    todos: [],
+const initialState = {
+    todos: []
 }
 
-const reducer = (state = initialstate, action) => {
+
+export const addTodo = (state = initialState, action) => {
     switch(action.type){
-        case ADDTODO:
-            return {
-                todos: [
-                    ...state.todos,
-                    {
-                        id: action.payload.id,
-                        task: action.payload.task
-                    }
-                ]
-            }
-        case DELETETODO:
-            return {
-                todos: [...state.todos.filter((todo) => todo.id !== action.payload)]
-            }
+        case "ADD_TODO":
+            return{...state, todos:state.todos.concat(action.payload)}
         default:
             return state
     }
 }
-
-export default reducer

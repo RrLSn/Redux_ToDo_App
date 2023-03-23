@@ -1,21 +1,7 @@
- export const ADDTODO = "ADDTODO";
- export const DELETETODO = "DELETETODO";
-
- export const addTodoList = (id, todo) => {
-    let task = {
-        id: id,
-        task: todo
-    }
-
+ export const addTodo = todo => {
     return {
-        type: ADDTODO,
-        payload: task 
+        type: "ADD_TODO",
+        payload: todo
     }
  }
-
- export const deleteTodoList = (id) => {
-    return {
-        type: DELETETODO,
-        payload: id
-    }
- }
+ 
