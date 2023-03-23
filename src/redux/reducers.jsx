@@ -1,4 +1,4 @@
-import { ADDTODO }
+import { ADDTODO, DELETETODO } from "../redux/action"
 
 const initialstate = {
     todos: [],
@@ -6,7 +6,7 @@ const initialstate = {
 
 const reducer = (state = initialstate, action) => {
     switch(action.type){
-        case "ADDTODO":
+        case ADDTODO:
             return {
                 todos: [
                     ...state.todos,
@@ -16,7 +16,7 @@ const reducer = (state = initialstate, action) => {
                     }
                 ]
             }
-        case "DELETETODO":
+        case DELETETODO:
             return {
                 todos: [...state.todos.filter((todo) => todo.id !== action.payload)]
             }
@@ -25,4 +25,4 @@ const reducer = (state = initialstate, action) => {
     }
 }
 
-export default reducer 
+export default reducer
