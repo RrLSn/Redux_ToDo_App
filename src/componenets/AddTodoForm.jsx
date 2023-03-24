@@ -1,36 +1,32 @@
-import { connect } from "react-redux"
-import { addTodo } from "../redux/action"
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addTodo } from '../redux/action'
 
 const AddTodoForm = () => {
-
-  const state = {
-  todo: "",
-  }
-
+  const [todo, setTodo] = useState("")
   const handleChange = (e) => {
-    this.setState({todo: e.target.value})
+    setTodo(e.target.value)
   }
-
+  const dispatch = useDispatch()
   const handleSubmit = (e) => {
-    e.preventDefault()
-    this.props.addTodo(this.state.todo)
-    
+    e.preventDefault();
+    const newTodos = {
+      todo: todo,
+      isCompleted: false,
+      id: Math.floor(Math.random() * 1000)
+    }
+    dispatch(addTodo(newTodos))
+    setTodo("")
   }
-
-
+  
   return (
     <div>
-        <form className='mb-[3rem]' onSubmit={handleSubmit}>
-          <input type="text" className='italic w-[18rem] p-[1rem] focus:outline-none' placeholder='Add your list...' name="todo" onChange={(e) => handleChange(e)} />
-          <button className='py-[1rem] w-[3rem] text-white font-[700] bg-red-900 rounded-r-md'>ADD</button>
-        </form>
+      <form className='mb-[3rem]' onSubmit={handleSubmit}>
+        <input type="text" className='italic w-[18rem] p-[1rem] focus:outline-none' placeholder='Add your list...' value={todo} onChange={(e) => handleChange(e)} required />
+        <button className='py-[1rem] w-[3rem] text-white font-[700] bg-red-900 rounded-r-md'>ADD</button>
+      </form>
     </div>
   )
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    addTodo : todo => dispatch(addTodo(todo))
-  }
-}
-export default connect(null,mapDispatchToProps) (AddTodoForm)
+export default AddTodoForm
