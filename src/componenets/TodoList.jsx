@@ -5,7 +5,6 @@ import { removeTodo, toggleComplete } from "../redux/action"
 const TodoList = () => {
 
   const TodoLists = useSelector((state) => state.todo.list)
-  console.log(TodoLists)
   const dispatch = useDispatch()
 
   const handleDelete = (id) => {
