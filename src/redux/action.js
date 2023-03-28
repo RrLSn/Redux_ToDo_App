@@ -5,11 +5,17 @@
     }
  }
  
- export const removeTodo = (todo) => {
+ export const removeTodo = (id) => {
     return {
         type: "REMOVETODO",
-        payload: todo
+        payload: id
     }
  }
 
-//  export const toggleComplete = 
+ export const toggleComplete = (id) => {
+    return {
+        type: "TOGGLECOMPLETE",
+        payload: id
+    }
+ }
+

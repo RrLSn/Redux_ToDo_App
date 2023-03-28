@@ -1,21 +1,5 @@
 const initialState = {
-    list: [
-        { 
-            todo: "Learn HTML", 
-            isCompleted: false, 
-            id: Math.floor(Math.random() *1000)
-        },
-        { 
-            todo: "Learn CSS", 
-            isCompleted: false, 
-            id: Math.floor(Math.random() *1000) 
-        },
-        {
-            todo: 'Learn React',
-            isCompleted: true,
-            id: Math.floor(Math.random() *1000)
-        }
-    ]
+    list: []
 }
 
 export const todoReducers = (state = initialState, action) => {
@@ -28,10 +12,13 @@ export const todoReducers = (state = initialState, action) => {
         case "REMOVETODO":
             return {
                 ...state,
-                list: [...state.list].filter((t) => t.id != id)
+                list: [...state.list].filter((t) => t.id !== action.payload)
             }
-        // case "TOGGLECOMPLETE":
-        //     return 
+        case "TOGGLECOMPLETE":
+            return {
+                ...state,
+                list: [...state.list].map((t) => t.id === action.payload? {...t, isCompleted: !t.isCompleted} : t) 
+            }
         default:
             return state
     }

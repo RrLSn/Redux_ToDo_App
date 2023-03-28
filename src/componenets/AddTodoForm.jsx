@@ -7,7 +7,9 @@ const AddTodoForm = () => {
   const handleChange = (e) => {
     setTodo(e.target.value)
   }
+
   const dispatch = useDispatch()
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     const newTodos = {

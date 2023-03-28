@@ -3,7 +3,6 @@ import AddTodoForm from './componenets/AddTodoForm'
 import TodoList from './componenets/TodoList'
 
 function App() {
-  
 
   return (
     <div className="App text-center p-[2rem] grid place-items-center">
