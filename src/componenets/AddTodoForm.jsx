@@ -4,6 +4,7 @@ import { addTodo } from '../redux/action'
 
 const AddTodoForm = () => {
   const [todo, setTodo] = useState("")
+  
   const handleChange = (e) => {
     setTodo(e.target.value)
   }

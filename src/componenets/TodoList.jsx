@@ -4,7 +4,7 @@ import { removeTodo, toggleComplete } from "../redux/action"
 
 const TodoList = () => {
 
-  const TodoLists = useSelector((state) => state.todo.list)
+  const TodoLists = useSelector((state) => state.list)
   const dispatch = useDispatch()
 
   const handleDelete = (id) => {
@@ -21,7 +21,7 @@ const TodoList = () => {
         TodoLists.map((tl,index) => (
           <div className={`w-[21rem] flex justify-between p-[0.6rem] border-b-2 border-b-red-900`} key={index}>
             <div className='w-[15rem] flex gap-[4rem] cursor-pointer' onClick={() => handleComplete(tl.id)}>
-            <input type="checkbox" checked={tl.isCompleted} />
+            <input type="checkbox" checked={tl.isCompleted} onChange={() => {}} />
             <span className={tl.isCompleted? "linetext" : "text"}>{tl.todo}</span>
             </div>
 
