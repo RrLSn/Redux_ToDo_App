@@ -8,8 +8,11 @@ Your browser version must be recent for a better experience *https://github.com/
 
 # Tech/framework used
 REACT VITE 
+
 TAILWIND CSS
+
 REACT REACT-REDUX
+
 COMPONENTS
 
 # Demo
